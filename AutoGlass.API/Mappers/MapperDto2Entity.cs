@@ -14,7 +14,8 @@ namespace AutoGlass.API.Mappers
             CreateMap<FornecedorAddDto, Fornecedor>();
             CreateMap<FornecedorDto, Fornecedor>();
             CreateMap<FornecedorDtoAll, Fornecedor>();
-            
+            CreateMap<FornecedorUpdateDto, Fornecedor>();
+
         }
         
     }

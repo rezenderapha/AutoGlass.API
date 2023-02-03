@@ -17,7 +17,6 @@ namespace AutoGlass.API
                 var db = scope.ServiceProvider.GetRequiredService<AutoGlassContext>();
                 db.Database.Migrate();
             }
-
             host.Run();
         }
 
@@ -27,6 +26,5 @@ namespace AutoGlass.API
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-
     }
 }

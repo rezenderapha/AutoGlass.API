@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace AutoGlass.API.Domain.Entities
 {
@@ -18,6 +19,7 @@ namespace AutoGlass.API.Domain.Entities
         public string Descricao { get; set; }
         public bool SituacaoFornecedor { get; set; }
         public string Cnpj { get; set; }
+        [JsonIgnore]
         public IEnumerable<Produto> Produto { get; set; }
     }
 }

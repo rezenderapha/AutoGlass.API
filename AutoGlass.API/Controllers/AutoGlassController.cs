@@ -117,7 +117,7 @@ namespace AutoGlass.API.Controllers
             var response = await _fornecedor.GetAllAsync(pageFilter, fornecedorFilterDto);
             if (response.Count == 0) return BadRequest("Fornecedor não encontrado");
 
-            var responseDto = _mapper.Map<List<FornecedorDto>>(response);
+            var responseDto = _mapper.Map<List<FornecedorDtoAll>>(response);
             Response.AddPagination(response.CurrentPage, response.PageSize, response.TotalCount, response.TotalPages);
 
             return Ok(responseDto);

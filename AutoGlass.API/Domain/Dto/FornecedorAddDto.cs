@@ -4,5 +4,6 @@
     {
         public string Descricao { get; set; }
         public string Cnpj { get; set; }
+        public bool SituacaoFornecedor { get; set; }
     }
 }

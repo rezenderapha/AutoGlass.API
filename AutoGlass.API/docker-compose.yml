@@ -1,0 +1,43 @@
+# /docker-compose.yml
+version: "3"
+
+volumes:
+  local_postgres_data: {}
+
+networks:
+    postgresqlNET:
+        driver: bridge
+    
+
+services:
+    db:
+      image: postgres:15.1
+      container_name: db
+      ports:
+        - "5432:5432"
+      networks:
+        - postgresqlNET
+      environment:
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_USERNAME: postgres
+      volumes:
+        - local_postgres_data:/var/lib/postgresql/data
+
+    autoglass:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      container_name: autoglass
+      environment:
+        ASPNETCORE_ENVRIOMENT: Development
+      networks:
+        - postgresqlNET
+      ports:
+        - "5000:5000"
+        - "5001:5001"
+        - "51234:80"
+      depends_on:
+        - db
+      command: ["dotnet", "ef", "database update"]
+
+

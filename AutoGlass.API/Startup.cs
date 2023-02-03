@@ -18,10 +18,8 @@ namespace AutoGlass.API
             Configuration = configuration;
         }
 
-
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -36,11 +34,8 @@ namespace AutoGlass.API
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers()
             .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-
         }
 
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {           
             app.UseDeveloperExceptionPage();
@@ -57,8 +52,6 @@ namespace AutoGlass.API
             {
                 endpoints.MapControllers();
             });
-
-
         }
     }
 }

@@ -13,6 +13,7 @@ namespace AutoGlass.API.Mappers
             CreateMap<Fornecedor, FornecedorFilterDto>();
             CreateMap<Fornecedor, FornecedorAddDto>();
             CreateMap<Fornecedor, FornecedorDto>();
+            CreateMap<Fornecedor, FornecedorDtoAll>();
         }
     }
 }
